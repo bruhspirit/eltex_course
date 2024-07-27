@@ -17,7 +17,7 @@ typedef struct
 typedef struct
 {
     char phonenumber[SIZE];
-} Phonnumber;
+} Phonenumber;
 
 typedef struct
 {
@@ -34,7 +34,7 @@ typedef struct
     int ID;
     Person person;
     Email emails[SIZE];
-    Phonnumber phonenumbers[SIZE];
+    Phonenumber phonenumbers[SIZE];
     Social socials[SIZE];
     int email_counter;
     int phonenumbers_counter;
