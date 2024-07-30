@@ -734,30 +734,6 @@ int main(int argc, char const *argv[])
     {
         node = Menu(node);
     }
-    // Person *P = calloc(1, sizeof(Person));
-    // if (P == NULL)
-    // {
-    //     perror("Failed to allocate memory for Person");
-    //     return EXIT_FAILURE;
-    // }
-
-    // strcpy(P->name, "name");
-    // strcpy(P->lastname, "lastname");
-    // Ins_Contact(P, &C);
-    // strcpy(P->name, "name1");
-    // strcpy(P->lastname, "lastname1");
-    // Ins_Contact(P, &C);
-    // strcpy(P->name, "name2");
-    // strcpy(P->lastname, "lastname2");
-    // Ins_Contact(P, &C);
-    // strcpy(P->name, "name4");
-    // strcpy(P->lastname, "lastname4");
-    // Print_Btree(C);
-    // Print_Btree(C);
-    // DeleteContact(1, &C);
-    // UpdateContact(2, &C, P);
-    // Print_Btree(C);
-    // printf("Person Name: %s\n", P->name);
     free(node);
     return 0;
 }
