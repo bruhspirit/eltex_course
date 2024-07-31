@@ -45,7 +45,7 @@ void square()
             printf("child not exited");
             exit(0);
         }
-        printf("Counted by parrent process: %d\n", getpid());
+        printf("Counted by parent process: %d\n", getpid());
         for (int i = child_sides; i < amount; i++)
         {
             printf("%d) %d\n", i + 1, sides[i] * sides[i]);
