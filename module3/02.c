@@ -5,29 +5,6 @@
 #include <string.h>
 #include <sys/wait.h>
 
-int Sum(int arg1, int arg2)
-{
-    return arg1 + arg2;
-}
-int Div(int arg1, int arg2)
-{
-    if (arg2 != 0)
-        return arg1 / arg2;
-    else
-    {
-        printf("Invalid argument\n");
-        exit(-1);
-    }
-}
-int Diff(int arg1, int arg2)
-{
-    return arg1 - arg2;
-}
-int Mult(int arg1, int arg2)
-{
-    return arg1 * arg2;
-}
-
 int SkipSpaces(char *command, int i)
 {
     while (command[i] == ' ')
@@ -96,13 +73,13 @@ void Execute(char *c)
     }
     int a1 = string_to_int(arg1), a2 = string_to_int(arg2);
     if (strcmp(command, "sum") == 0)
-        printf("result of sum: %d\n", Sum(a1, a2));
+        execl("sum", a1, a2);
     if (strcmp(command, "diff") == 0)
-        printf("result of diff: %d\n", Diff(a1, a2));
+        execl("diff", a1, a2);
     if (strcmp(command, "mult") == 0)
-        printf("result of sum: %d\n", Mult(a1, a2));
+        execl("mult", a1, a2);
     if (strcmp(command, "div") == 0)
-        printf("result of div: %d\n", Div(a1, a2));
+        execl("div", a1, a2);
 }
 
 void Interpretator()

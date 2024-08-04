@@ -1,2 +1,6 @@
 .vscode
 *.txt
+*.so
+*.o
+*.a
+*.bin

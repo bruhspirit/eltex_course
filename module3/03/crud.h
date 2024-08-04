@@ -109,15 +109,6 @@ Person *CreatePerson()
     return new;
 }
 
-Contact *CreateContact(Context *context)
-{
-    Contact *new = calloc(1, sizeof(Contact));
-    Person *person = CreatePerson();
-    new->person = *person;
-    new->id = context->id;
-    return new;
-}
-
 int WriteContext(Context *context)
 {
     int F = open(path, O_RDWR);
@@ -127,16 +118,22 @@ int WriteContext(Context *context)
         close(F);
         return 0;
     }
-    lseek(F, 0, SEEK_SET);
-    int res = write(F, &context->id, 4);
+    int res = write(F, &context->active, sizeof(int));
     if (res == -1)
     {
         printf("Error while writing.\n");
         close(F);
         return 0;
     }
-    lseek(F, 1, SEEK_SET);
-    res = write(F, &context->counter, 4);
+    lseek(F, sizeof(int), SEEK_SET);
+    res = write(F, &context->deleted, sizeof(int));
+    if (res == -1)
+    {
+        printf("Error while writing.\n");
+        close(F);
+        return 0;
+    }
+    res = write(F, &context->id, sizeof(int));
     if (res == -1)
     {
         printf("Error while writing.\n");
@@ -160,10 +157,64 @@ Context *ReadContext()
             return 0;
         }
         lseek(F, 0, SEEK_SET);
-        read(F, &context->id, 4);
-        lseek(F, 4, SEEK_SET);
-        read(F, &context->counter, 4);
+        read(F, &context->active, sizeof(int));
+        lseek(F, sizeof(int), SEEK_SET);
+        read(F, &context->deleted, sizeof(int));
+        lseek(F, sizeof(int), SEEK_SET);
+        read(F, &context->id, sizeof(int));
     }
 
     return context;
+}
+
+int WriteContact(Contact *contact, Context *context)
+{
+    int F = open(path, O_RDWR);
+    if (F == -1)
+    {
+        printf("Error while opening the file.\n");
+        close(F);
+        return 0;
+    }
+    if (context->deleted == -1)
+    {
+    }
+    else
+    {
+        if (context->active == -1)
+        {
+            lseek(F, 2 * sizeof(int), SEEK_SET);
+            int res = write(F, &contact, sizeof(contact));
+            if (res == -1)
+            {
+                printf("Error while writing.\n");
+                close(F);
+                return 0;
+            }
+            int active = lseek(F, 0, SEEK_CUR);
+            lseek(F, 0, SEEK_SET);
+            res = write(F,&active, sizeof(int));
+            if (res == -1)
+            {
+                printf("Error while writing.\n");
+                close(F);
+                return 0;
+            }
+        }
+        else
+        {
+        }
+    }
+    return 1;
+}
+Contact *CreateContact()
+{
+    Context *context = ReadContext();
+    Contact *new = calloc(1, sizeof(Contact));
+    Person *person = CreatePerson();
+    new->person = *person;
+    new->id = context->id;
+    context->id++;
+    WriteContext(context);
+    return new;
 }

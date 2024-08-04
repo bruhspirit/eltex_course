@@ -10,21 +10,24 @@ int id = 0;
 int main(int argc, char const *argv[])
 {
     CreateIfNotExist();
-    Context *context = ReadContext();
-    // Contact *new = CreateContact(context);
+    Context *context = calloc(1, sizeof(context));
+
     if (context != 0)
     {
-        printf("ID %d\n", context->id);
-        printf("Count %d\n\n", context->counter);
+        printf("active %d\n", context->active);
+        printf("deleted %d\n", context->deleted);
+        printf("id %d\n\n", context->id);
     }
-    context->counter = 4;
-    context->id = 4123;
+    context->active = 3;
+    context->deleted = 5;
+    context->id = 6;
     WriteContext(context);
     context = ReadContext();
     if (context != 0)
     {
-        printf("ID %d\n", context->id);
-        printf("Count %d\n\n", context->counter);
+        printf("active %d\n", context->active);
+        printf("deleted %d\n", context->deleted);
+        printf("id %d\n", context->id);
     }
     free(context);
     return 0;

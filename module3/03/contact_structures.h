@@ -5,7 +5,7 @@
 
 typedef struct Context
 {
-    int id, counter;
+    int active, deleted, id;
 } Context;
 
 typedef struct Phonenumber
