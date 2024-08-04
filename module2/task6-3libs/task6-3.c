@@ -1,14 +1,66 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include "operation.h"
-
-double div(int n, ...);
-double diff(int n, ...);
-double mult(int n, ...);
-double sum(int n, ...);
+#include <dlfcn.h>
 
 int main(int argc, char const *argv[])
 {
+    void *handle;
+    char *error;
+    double (*div)(int n, ...);
+    double (*diff)(int n, ...);
+    double (*sum)(int n, ...);
+    double (*mult)(int n, ...);
+
+    handle = dlopen("/home/V/lib/libdiv.so", RTLD_LAZY);
+    if (!handle)
+    {
+        fputs(dlerror(), stderr);
+        exit(-1);
+    }
+    div = dlsym(handle, "div");
+    if ((error = dlerror()) != NULL)
+    {
+        fprintf(stderr, "%s\n", error);
+        exit(-1);
+    }
+    handle = dlopen("/home/V/lib/libsum.so", RTLD_LAZY);
+    if (!handle)
+    {
+        fputs(dlerror(), stderr);
+        exit(-1);
+    }
+    sum = dlsym(handle, "sum");
+    if ((error = dlerror()) != NULL)
+    {
+        fprintf(stderr, "%s\n", error);
+        exit(-1);
+    }
+    handle = dlopen("/home/V/lib/libdiff.so", RTLD_LAZY);
+    if (!handle)
+    {
+        fputs(dlerror(), stderr);
+        exit(-1);
+    }
+    diff = dlsym(handle, "diff");
+    if ((error = dlerror()) != NULL)
+    {
+        fprintf(stderr, "%s\n", error);
+        exit(-1);
+    }
+    handle = dlopen("/home/V/lib/libmult.so", RTLD_LAZY);
+    if (!handle)
+    {
+        fputs(dlerror(), stderr);
+        exit(-1);
+    }
+    mult = dlsym(handle, "mult");
+    if ((error = dlerror()) != NULL)
+    {
+        fprintf(stderr, "%s\n", error);
+        exit(-1);
+    }
     operation o;
     int args_count = 0;
     int args[10];
@@ -36,16 +88,16 @@ int main(int argc, char const *argv[])
     switch (o.action)
     {
     case '+':
-        o.func = sum;
+        o.func = (*sum);
         break;
     case '-':
-        o.func = diff;
+        o.func = (*diff);
         break;
     case '*':
-        o.func = mult;
+        o.func = (*mult);
         break;
     case '/':
-        o.func = div;
+        o.func = (*div);
         break;
     default:
         break;
