@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include "../module2/structs.h"
+#include "../6-1/structs.h"
 #define SIZE 256
 
 int main(int argc, char const *argv[])

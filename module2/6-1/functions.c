@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-#include "../module2/structs.h"
+#include "../6-1/structs.h"
 #define SIZE 256
 int id_counter = 0;
 int contact_counter = 0;
@@ -834,7 +834,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
@@ -887,7 +887,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
@@ -940,7 +940,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
@@ -996,7 +996,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
@@ -1052,7 +1052,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
@@ -1108,7 +1108,7 @@ Contact *Menu(Contact *head)
         else
         {
             printf("Input error\n");
-            return;
+            return 0;
         }
         count = 0;
         break;
