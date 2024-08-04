@@ -18,6 +18,6 @@ int string_to_int(const char *s)
 
 int main(int argc, char const *argv[])
 {
-	printf("result of mult:%d", Mult(string_to_int(argv[0]), string_to_int(argv[1])));
+	printf("result of mult:%d\n", Mult(string_to_int(argv[0]), string_to_int(argv[1])));
 	return 0;
 }

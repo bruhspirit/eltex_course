@@ -71,15 +71,15 @@ void Execute(char *c)
         printf("Error occured: Invalid argument\n");
         exit(-1);
     }
-    int a1 = string_to_int(arg1), a2 = string_to_int(arg2);
+    //int a1 = string_to_int(arg1), a2 = string_to_int(arg2);
     if (strcmp(command, "sum") == 0)
-        execl("sum", a1, a2);
+        execl("sum", arg1, arg2);
     if (strcmp(command, "diff") == 0)
-        execl("diff", a1, a2);
+        execl("diff", arg1, arg2);
     if (strcmp(command, "mult") == 0)
-        execl("mult", a1, a2);
+        execl("mult", arg1, arg2);
     if (strcmp(command, "div") == 0)
-        execl("div", a1, a2);
+        execl("div", arg1, arg2);
 }
 
 void Interpretator()
