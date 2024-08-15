@@ -1,0 +1,161 @@
+No.     Time           Source                Destination           Protocol Length Info
+      1 0.000000       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 0  Port = 0x8007
+
+Frame 1: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 1
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      3 0.051219       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/20/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 3: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 20
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      4 0.051403       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/100/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 4: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 100
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      5 0.052482       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/200/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 5: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      6 0.052774       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/300/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 6: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 300
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      7 0.054417       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/333/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 7: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 333
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      9 1.999669       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 0  Port = 0x8007
+
+Frame 9: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 1
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     11 2.050833       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/20/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 11: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 20
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     12 2.051061       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/100/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 12: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 100
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     13 2.052330       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/200/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 13: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     14 2.052573       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/300/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 14: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 300
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     15 2.054052       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/333/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 15: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 333
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     16 3.999452       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 0  Port = 0x8007
+
+Frame 16: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 1
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     18 4.050578       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/20/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 18: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 20
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     19 4.051714       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/100/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 19: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 100
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     20 4.051901       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/200/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 20: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     21 4.052174       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/300/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 21: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 300
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     22 4.053785       0c:ac:26:88:00:06     PVST+                 STP      68     Conf. Root = 32768/333/0c:45:64:78:00:00  Cost = 4  Port = 0x8007
+
+Frame 22: 68 bytes on wire (544 bits), 68 bytes captured (544 bits) on interface -, id 0
+Ethernet II, Src: 0c:ac:26:88:00:06 (0c:ac:26:88:00:06), Dst: PVST+ (01:00:0c:cc:cc:cd)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 333
+Logical-Link Control
+Spanning Tree Protocol
