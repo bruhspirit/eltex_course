@@ -84,7 +84,7 @@ int main(int argc, char const *argv[])
     } 
     else if (pid == 0) 
     { 
-        printf("File blocked. Child process works with file...\n");
+        printf("File blocked. Parent process works with file...\n");
         P(semid);
         close(fd[0]); 
         

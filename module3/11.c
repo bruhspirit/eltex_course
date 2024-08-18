@@ -5,26 +5,8 @@
 #include <unistd.h>
 #include <signal.h>
 #include <sys/wait.h>
-#include <sys/sem.h>
-#include <sys/shm.h>
-
-#define SEM_KEY 1234 
-
-void P(int semid) {
-    struct sembuf sb;
-    sb.sem_num = 0; // Номер семафора
-    sb.sem_op = -1; // Операция P
-    sb.sem_flg = 0;
-    semop(semid, &sb, 1);
-}
-
-void V(int semid) {
-    struct sembuf sb;
-    sb.sem_num = 0; // Номер семафора
-    sb.sem_op = 1; // Операция V
-    sb.sem_flg = 0;
-    semop(semid, &sb, 1);
-}
+#include <semaphore.h>
+#include <fcntl.h>
 
 int stoi(const char *s)
 {
@@ -35,22 +17,18 @@ int stoi(const char *s)
 
 int main(int argc, char const *argv[]) 
 {
+    sem_unlink("/sem");
     if (argc < 2) {
         fprintf(stderr, "Usage: %s <amount>\n", argv[0]);
         return 1;
     }
 
-    int semid = semget(SEM_KEY, 1, IPC_CREAT | 0666);
-    if (semid == -1) {
-        perror("semget");
-        exit(1);
-    }
-
-    if (semctl(semid, 0, SETVAL, 1) == -1) {
-        perror("semctl");
-        exit(1);
-    }
-
+    sem_t *sem = sem_open("/sem", O_CREAT | O_EXCL, 0644, 2);
+    if (sem == SEM_FAILED) {
+        perror("sem_open");
+        exit(EXIT_FAILURE);
+    }   
+    sem_init(sem, 1, 0); 
     srand(time(NULL));
      
     int fd[2], n, wstatus, buf, msg, amount = stoi(argv[1]); 
@@ -74,34 +52,22 @@ int main(int argc, char const *argv[])
     }    
     fclose(fptr); 
 
-    V(semid);
     pid_t pid = fork();
 
-    int shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666);
-    int *active_processes = (int *)shmat(shmid, NULL, 0);
-    *active_processes = 0;
-    
-    if (*active_processes > 2)
-    {
-        printf("Only 2 processes can work with file!\n");
-        exit(-1);
-    }
 
     if (pid == -1) 
     {
         perror("fork failed");
         return 1;
     } 
+
+  
+
     else if (pid == 0) 
     { 
         printf("File blocked. Parent process works with file...\n");
-        P(semid);
-        (*active_processes)++;
-        if (*active_processes > 2)
-        {
-            printf("Only 2 processes can work with file.");
-            exit(-1);
-        }
+       
+        
         close(fd[0]); 
         
         FILE *fptr = fopen("nums.txt", "r");
@@ -123,23 +89,22 @@ int main(int argc, char const *argv[])
             count++;
         }
         printf("Unblocking...\n");
-        (*active_processes)--;
-        V(semid);
+        
+
         close(fd[1]); 
         fclose(fptr); 
+        sem_post(sem);
         return 0; 
     } 
     else 
     { 
-        close(fd[1]); 
         printf("Wait for unblocking...\n");
-        P(semid);
-        (*active_processes)++;
-        if (*active_processes > 2)
-        {
-            printf("Only 2 processes can work with file.");
-            exit(-1);
-        }
+        sem_wait(sem); 
+        close(fd[1]); 
+        
+      
+        
+
         FILE *fptr = fopen("nums.txt", "a");
         if (fptr == NULL) {
             perror("Failed to open file");
@@ -171,11 +136,8 @@ int main(int argc, char const *argv[])
             printf("child not exited");
             exit(0);
         } 
-        (*active_processes)--;
-        V(semid);    
         return 0;
     }
-    semctl(semid, 0, IPC_RMID);
 }
 
 

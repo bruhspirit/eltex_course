@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
         perror("sem_open");
         exit(EXIT_FAILURE);
     }   
-    //sem_init(&sem, 0, 0); 
+    sem_init(sem, 1, 0);  
     srand(time(NULL));
      
     int fd[2], n, wstatus, buf, msg, amount = stoi(argv[1]); 
@@ -65,8 +65,9 @@ int main(int argc, char const *argv[])
 
     else if (pid == 0) 
     { 
-        printf("File blocked. Child process works with file...\n");
-        sem_wait(sem);
+        printf("File blocked. Parent process works with file...\n");
+       
+        
         
         close(fd[0]); 
         
@@ -89,17 +90,19 @@ int main(int argc, char const *argv[])
             count++;
         }
         printf("Unblocking...\n");
-    
+        sem_post(sem);
+
         close(fd[1]); 
         fclose(fptr); 
         return 0; 
     } 
     else 
     { 
-        sem_post(sem); 
-        close(fd[1]); 
         
+        close(fd[1]); 
         printf("Wait for unblocking...\n");
+        sem_wait(sem); 
+        
         
 
         FILE *fptr = fopen("nums.txt", "a");
