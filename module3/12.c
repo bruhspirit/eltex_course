@@ -145,8 +145,7 @@ int main()
             } 
             output_array[(iter - 1) * 2] = min; 
             output_array[(iter - 1) * 2 + 1] = max;  
-            printf("Min: %d\n", output_array[(iter - 1) * 2]);
-            printf("Max: %d\n", output_array[(iter - 1) * 2 + 1]);
+            
             iter++;
 
             V(semid); 
@@ -158,6 +157,7 @@ int main()
     {
         void (*oldHandler)(int) = signal(SIGINT, handle_sigint);
         int iter = 1;
+
         while(1)
         {
             P(semid);
@@ -169,7 +169,11 @@ int main()
                 printf("Can't attach shared memory\n");
                 exit(-1);
             }
-
+            if((output_array = (int *)shmat(output_shmid, NULL, 0)) == (int *)(-1))
+            {
+                printf("Can't attach shared memory\n");
+                exit(-1);
+            } 
             for (int i = 0; i < sets_amount; i++)
                 for (int j = 0; j < nums_amount; j++)
                 {
@@ -178,6 +182,8 @@ int main()
             if (keep_running == 0)
                 break; 
             sleep(1);
+            printf("Min: %d\n", output_array[(iter - 1) * 2]);
+            printf("Max: %d\n", output_array[(iter - 1) * 2 + 1]);
             iter++; 
             V(semid);
         }
