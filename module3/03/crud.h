@@ -207,6 +207,7 @@ int WriteContact(Contact *contact, Context *context)
     }
     return 1;
 }
+
 Contact *CreateContact()
 {
     Context *context = ReadContext();
