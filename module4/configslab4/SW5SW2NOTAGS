@@ -1,0 +1,103 @@
+No.     Time           Source                Destination           Protocol Length Info
+      7 0.085097       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 7: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+      9 1.085439       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 9: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     16 2.084780       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 16: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     17 2.904814       0c:ca:04:35:00:02     0c:ca:04:35:00:02     LOOP     60     Reply
+
+Frame 17: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+Ethernet II, Src: 0c:ca:04:35:00:02 (0c:ca:04:35:00:02), Dst: 0c:ca:04:35:00:02 (0c:ca:04:35:00:02)
+Configuration Test Protocol (loopback)
+Data (40 bytes)
+
+0000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0010  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0020  00 00 00 00 00 00 00 00                           ........
+
+No.     Time           Source                Destination           Protocol Length Info
+     19 3.084731       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 19: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     26 4.084586       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 26: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     28 5.084398       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 28: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     35 6.084187       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 35: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     37 7.084061       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 37: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     38 7.085360       0c:bd:1c:b9:00:06     0c:bd:1c:b9:00:06     LOOP     60     Reply
+
+Frame 38: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+Ethernet II, Src: 0c:bd:1c:b9:00:06 (0c:bd:1c:b9:00:06), Dst: 0c:bd:1c:b9:00:06 (0c:bd:1c:b9:00:06)
+Configuration Test Protocol (loopback)
+Data (40 bytes)
+
+0000  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0010  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   ................
+0020  00 00 00 00 00 00 00 00                           ........
+
+No.     Time           Source                Destination           Protocol Length Info
+     45 8.083977       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 45: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
+
+No.     Time           Source                Destination           Protocol Length Info
+     47 9.083785       0c:bd:1c:b9:00:06     Spanning-tree-(for-bridges)_00 STP      60     Conf. Root = 4096/1/0c:ac:26:88:00:00  Cost = 4  Port = 0x8007
+
+Frame 47: 60 bytes on wire (480 bits), 60 bytes captured (480 bits) on interface -, id 0
+IEEE 802.3 Ethernet 
+Logical-Link Control
+Spanning Tree Protocol
