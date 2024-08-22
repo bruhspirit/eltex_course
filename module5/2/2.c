@@ -5,8 +5,8 @@
 #include <linux/uaccess.h>
 #include <linux/slab.h>
 
-int len, temp;
-char *msg;
+static int len, temp;
+static char *msg;
 
 ssize_t read_proc(struct file *filp, char *buf, size_t count, loff_t *offp)
 {
