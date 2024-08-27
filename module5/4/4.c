@@ -13,9 +13,13 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/poll.h>
+#include <linux/string.h>
+#include <linux/uaccess.h>
 // #define THIS_MODULE (&__this_module)
 
 /*  Prototypes - this would normally go in a .h file */
+static short readPos = 0;
+static int counter = 0;
 static int device_open(struct inode *, struct file *);
 static int device_release(struct inode *, struct file *);
 static ssize_t device_read(struct file *, char __user *, size_t, loff_t *);
@@ -23,7 +27,7 @@ static ssize_t device_write(struct file *, const char __user *, size_t, loff_t *
 #define SUCCESS 0
 
 #define DEVICE_NAME "chardev" /* Dev name as it appears in /proc/devices   */
-#define BUF_LEN 80            /* Max length of the message from the device */
+#define BUF_LEN 100           /* Max length of the message from the device */
 /* Global variables are declared as static, so are global within the file. */
 
 static int major; /* major number assigned to our device driver */
@@ -35,7 +39,7 @@ enum
 
 /* Is device open? Used to prevent multiple access to device */
 static atomic_t already_open = ATOMIC_INIT(CDEV_NOT_USED);
-static char msg[BUF_LEN]; /* The msg the device will give when asked */
+static char msg[BUF_LEN] = {0}; /* The msg the device will give when asked */
 static struct class *cls;
 static struct file_operations chardev_fops = {
     .read = device_read,
@@ -76,12 +80,11 @@ static void __exit chardev_exit(void)
  */
 static int device_open(struct inode *inode, struct file *file)
 {
-    static int counter = 0;
-
+    counter++;
     if (atomic_cmpxchg(&already_open, CDEV_NOT_USED, CDEV_EXCLUSIVE_OPEN))
         return -EBUSY;
 
-    sprintf(msg, "I already told you %d times Hello world!\n", counter++);
+    printk(msg, "I already told you %d times Hello world!\n", counter++);
     try_module_get(THIS_MODULE);
     return SUCCESS;
 }
@@ -105,38 +108,45 @@ static ssize_t device_read(struct file *filp,   /* see include/linux/fs.h   */
                            char __user *buffer, /* buffer to fill with data */
                            size_t length,       /* length of the buffer     */
                            loff_t *offset)
-{ /* Number of bytes actually written to the buffer */
-    int bytes_read = 0;
-    const char *msg_ptr = msg;
-    if (!*(msg_ptr + *offset))
-    {                /* we are at the end of message */
-        *offset = 0; /* reset the offset */
-        return 0;    /* signify end of file */
-    }
-    msg_ptr += *offset;
-    /* Actually put the data into the buffer */
-    while (length && *msg_ptr)
+{
+    short count = 0;
+    while (length && (msg[readPos] != 0))
     {
-        /* The buffer is in the user data segment, not the kernel
-         * segment so "*" assignment won't work.  We have to use
-         * put_user which copies data from the kernel data segment to
-         * the user data segment.
-         */
-        put_user(*(msg_ptr++), buffer++);
+        put_user(msg[readPos], buffer++);
+        count++;
         length--;
-        bytes_read++;
+        readPos++;
     }
-    *offset += bytes_read;
-    /* Most read functions return the number of bytes put into the buffer. */
-    return bytes_read;
+    return count;
 }
 
 /* Called when a process writes to dev file: echo "hi" > /dev/hello */
 static ssize_t device_write(struct file *filp, const char __user *buff,
                             size_t len, loff_t *off)
 {
-    pr_alert("Sorry, this operation is not supported.\n");
-    return -EINVAL;
+    short count = 0;
+
+    // Проверка, чтобы не записать больше 100 байт
+    if (len > sizeof(msg) - 1)
+    {
+        len = sizeof(msg) - 1; // Ограничиваем длину до максимума
+    }
+
+    memset(msg, 0, sizeof(msg)); // Очистка буфера
+    readPos = 0;
+
+    // Обработаем данные
+    for (short ind = len - 1; ind >= 0; ind--)
+    {
+        if (copy_from_user(&msg[count++], &buff[ind], 1))
+        {
+            // Ошибка копирования из пользовательского пространства
+            return -EFAULT;
+        }
+    }
+
+    msg[count] = '\0'; // Обеспечиваем корректное завершение строки
+    return count;      // Возвращаем количество записанных байт
 }
 
 module_init(chardev_init);
